@@ -47,15 +47,21 @@
       <div class="tasksInputContainer">
         <input class="tasksInput" type="text" />
         <button class="addTaskButton">Add</button>
+
+          <select class="sortTasks" name="sortTasks">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="deleted">Deleted</option>
+          </select>
       </div>
 
       <div class="errorMessage">Error</div>
 
       <div class="tasksContainer">
-
-        <div class="taskElement" state="toDo">
+        <div class="taskElement toDO" state="toDo">
+          <div class="deletedTaskLine"></div>
           <div class="taskContent">
-            TaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTask
+            Task to do
           </div>
           <button class="taskCheckButton">
             <i class="fa-solid fa-check"></i>
@@ -65,17 +71,31 @@
           </button>
         </div>
 
-        <div class="taskElement" state="toDo">
-            <div class="taskContent">
-              TaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTaskTask
-            </div>
-            <button class="taskCheckButton">
-              <i class="fa-solid fa-check"></i>
-            </button>
-            <button class="deleteTaskButton">
-              <i class="fa-solid fa-x"></i>
-            </button>
+        <div class="taskElement completed" state="completed">
+          <div class="deletedTaskLine"></div>
+          <div class="taskContent">
+            Task to do
           </div>
+          <button class="taskCheckButton">
+            <i class="fa-solid fa-check"></i>
+          </button>
+          <button class="deleteTaskButton">
+            <i class="fa-solid fa-x"></i>
+          </button>
+        </div>
+
+        <div class="taskElement deleted" state="deleted">
+          <div class="deletedTaskLine"></div>
+          <div class="taskContent">
+            Task to do
+          </div>
+          <button class="taskCheckButton">
+            <i class="fa-solid fa-check"></i>
+          </button>
+          <button class="deleteTaskButton">
+            <i class="fa-solid fa-x"></i>
+          </button>
+        </div>
       </div>
     </div>
   </body>
