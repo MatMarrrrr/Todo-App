@@ -41,20 +41,22 @@
       <img class="todoIcon" src="assets/icons/to_do_icon.png" />
 
       <div class="tasksInputContainer">
-        <input class="tasksInput" type="text" />
+        <input class="tasksInput" type="text" placeholder="Task name" />
         <button class="addTaskButton">Add</button>
 
         <select class="sortTasks" name="sortTasks">
           <option value="all">All</option>
+          <option value="toDO">To Do</option>
           <option value="completed">Completed</option>
           <option value="deleted">Deleted</option>
         </select>
+        <button class="clearAllTasksButton">Clear All</button>
       </div>
 
       <div class="errorMessage hidden">Error</div>
 
       <div class="tasksContainer">
-        <div class="taskElement toDO" state="toDo" id="0">
+        <!-- <div class="taskElement toDO" state="toDo" id="0">
           <div class="deletedTaskLine"></div>
           <div class="taskContent">Task to do</div>
           <button class="taskCheckButton">
@@ -85,7 +87,7 @@
           <button class="deleteTaskButton">
             <i class="fa-solid fa-x"></i>
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </body>

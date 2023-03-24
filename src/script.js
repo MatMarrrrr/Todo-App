@@ -1,6 +1,6 @@
 $(document).ready(() => {
   window.todos = getTodos();
-  loadTodos(todos);
+  loadTodos(window.todos);
 });
 
 $(document).on("click", ".addTaskButton", () => {
@@ -11,7 +11,11 @@ $(document).on("click", ".addTaskButton", () => {
   if (inputValue != "") {
     errorMessage.addClass("hidden");
 
-    let taskID = window.todos.length;
+    let taskID = 0;
+
+    if (window.todos !== undefined) {
+      taskID = window.todos.length;
+    }
 
     createTaskElement("toDO", inputValue, taskID);
     tasksInput.val("");
@@ -27,9 +31,54 @@ $(document).on("click", ".addTaskButton", () => {
   }
 });
 
-$(document).on("click", ".taskCheckButton", () => {});
+$(document).on("click", ".taskCheckButton", function () {
+  let taskElement = $(this).parent();
+  let todoID = taskElement.attr("id");
+  taskElement.attr("state", "completed");
+  taskElement.removeClass("toDO");
+  taskElement.addClass("completed");
+  updateTodo(todoID, "completed");
+});
 
-$(document).on("click", ".deleteTaskButton", () => {});
+$(document).on("click", ".deleteTaskButton", function () {
+  let taskElement = $(this).parent();
+  let todoID = taskElement.attr("id");
+
+  taskElement.attr("state", "deleted");
+
+  taskElement.removeClass("toDO");
+  taskElement.removeClass("completed");
+  taskElement.addClass("deleted");
+  updateTodo(todoID, "deleted");
+});
+
+$(document).on("keypress", ".tasksInput", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    $(".addTaskButton").click();
+  }
+});
+
+$(document).on("click", ".clearAllTasksButton", () => {
+  window.localStorage.removeItem("todos");
+  window.localStorage.setItem("todos", JSON.stringify([]));
+  $(".taskElement").remove();
+  window.todos = getTodos();
+});
+
+$(document).on("change", ".sortTasks", function () {
+  let tasks = $(".taskElement");
+
+  tasks.each(function () {
+    let state = $(this).attr("state");
+
+    if ($(".sortTasks").val() !== state && $(".sortTasks").val() !== "all") {
+      $(this).addClass("hidden");
+    } else {
+      $(this).removeClass("hidden");
+    }
+  });
+});
 
 function createTaskElement(state, value, id) {
   let taskElement = $(
@@ -67,17 +116,27 @@ function saveTodo(todoToSave) {
 }
 
 function updateTodo(todoID, newState) {
-  let todoData = window.todos[todoID].split(",");
-  todoData[0] = newState;
-  window.todos[todoID] = todoData;
-  window.localStorage.setItem("todos", JSON.stringify(todoData));
+  let todosData = JSON.parse(window.localStorage.getItem("todos"));
+  let todoDetails = todosData[todoID].split(",");
+
+  todoDetails[0] = newState;
+  todosData[todoID] = todoDetails.join(",");
+
+  window.localStorage.setItem("todos", JSON.stringify(todosData));
 }
 
 function getTodos() {
   let todos = [];
-  if (window.localStorage.getItem("todos") !== null) {
-    todos = JSON.parse(window.localStorage.getItem("todos"));
+
+  try {
+    if (window.localStorage.getItem("todos") !== null) {
+      todos = JSON.parse(window.localStorage.getItem("todos"));
+    }
+  } catch (e) {
+    console.error("Error parsing todos:", e);
+    window.localStorage.removeItem("todos");
   }
+
   return todos;
 }
 
