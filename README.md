@@ -1,5 +1,5 @@
 # Todo App
-## Live version: [Link do mojej aplikacji](https://matmarrr.github.io/Todo-App/){:target="_blank"}
+## Live version: <a href="https://matmarrr.github.io/Todo-App/" target="_blank">Link do mojej aplikacji</a>
 
 ## Created using HTML5, CSS3, JS and jQuery
 
