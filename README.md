@@ -1,6 +1,5 @@
 # Todo App
-## Live version
-### https://matmarrr.github.io/Todo-App/
+## Live version: https://matmarrr.github.io/Todo-App/
 
 ## Created using HTML5, CSS3, JS and jQuery
 
