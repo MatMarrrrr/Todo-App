@@ -1,8 +1,11 @@
 :root {
-    /* Colors */
-    --dark-purple: #13005A;
-    --dark-blue: #00337C;
-    --medium-blue: #1C82AD;
-    --bright-green: #03C988;
-  }
-  
+  /* Colors */
+  --dark-purple: #13005a;
+  --dark-blue: #00337c;
+  --medium-blue: #1c82ad;
+  --bright-green: #03c988;
+  --gradient-color-1: #ee7752;
+  --gradient-color-2: #e73c7e;
+  --gradient-color-3: #23a6d5;
+  --gradient-color-4: #23d5ab;
+}
