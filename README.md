@@ -1,5 +1,5 @@
 # Todo App
-## Live version: (https://matmarrr.github.io/Todo-App/){:target="_blank"}
+## Live version: [Link do mojej aplikacji](https://matmarrr.github.io/Todo-App/){:target="_blank"}
 
 ## Created using HTML5, CSS3, JS and jQuery
 
