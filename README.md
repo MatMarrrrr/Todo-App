@@ -1,5 +1,5 @@
 # Todo App
-## Live version: https://matmarrr.github.io/Todo-App/
+## Live version: https://todoapp-mm.netlify.app
 ## Used technologies
 [<img align="left" alt="JavaScript" width="36px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" style="padding-right:10px;"/>][js]
 [<img align="left" alt="jQuery" width="36px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original-wordmark.svg" style="padding-right:10px;"/>][jquery]
